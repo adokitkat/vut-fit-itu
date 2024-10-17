@@ -1,0 +1,25 @@
+{% load static %}
+
+<!-- dynamicky zobrazuje kontakty a hladane kontakty -->
+{% for contact in people %}
+
+  <div class="contact">
+        
+    <div class="foto">
+      <img class="pics" src="{{ contact.image.url }}">
+    </div>
+
+    <div class="name"><p>{{ contact }} {{ contact.surname }}</p></div>
+
+    {% if not contact.added and contact.name != user.name %}
+    <div class="ring add">
+        <image src="{% static "voip/plus.svg" %}" alt="Add" id="add"/>
+    </div>
+    {% elif contact.added and contact.name != user.name  %}
+    <div class="ring start-call" > 
+      <img src="{% static "voip/call.svg" %}" alt="Call">
+    </div>
+    {% endif %}
+  </div>
+
+{% endfor %}

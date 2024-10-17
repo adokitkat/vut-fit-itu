@@ -1,0 +1,237 @@
+
+$break: 1080px
+$break-small: 320px
+
+html
+  background: rgb(255,255,255);
+  background: linear-gradient(-135deg, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 100%);
+  height: 100%
+  
+body
+  //background-color: #212529
+  font-family: 'Raleway', sans-serif;
+  margin: 0px
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  //background: rgb(34,193,195);
+  //background: linear-gradient(165deg, rgba(34,193,195,1) 0%, rgba(233,159,0,1) 99%);
+  //background: rgb(255,255,255);
+  //background: linear-gradient(-40deg, rgba(255,255,255,1) 0%, rgba(44,119,235,1) 48%, rgba(134,47,234,1) 84%, rgba(187,22,182,1) 100%);
+  
+
+.people 
+  img.userpic
+    $size: 200px
+    width: $size
+    height: $size
+    border-radius: $size / 2
+    vertical-align: right
+  margin: 10px 0px
+  align-content: center
+
+.grid-container
+  display: grid
+  
+
+  grid-template-rows: 0.1fr 1fr /////////////////////////////////
+  grid-template-areas: ". navbar ." ". content ."
+
+  @media screen and (max-width: $break)
+    grid-template-columns: 0fr 1fr 0fr
+
+  @media screen and (min-width: $break+1)
+    grid-template-columns: 1fr 1fr 1fr
+
+
+.navbar
+  grid-area: navbar
+  
+  max-height: 45px
+  margin: 0px 10px
+  padding-top: 8px
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr
+  grid-template-areas: "search"
+  
+  .search
+    max-height: 45px
+    form
+      width: 100%;
+      left: -1px;
+      position: relative;
+      border-bottom: 1px solid black
+      
+    input
+      height: 40px
+      font-size: 18px
+      border: none
+      width: inherit
+      outline: none
+      background-color: transparent
+      
+.profile
+  grid-area: profile
+
+.search
+  grid-area: search
+
+.content
+  grid-area: content
+  
+  position: relative
+  top: -15px
+  grid-template-columns: 1fr;
+  padding-top: 15px
+
+
+.contact
+  grid-area: contact
+  
+  display: grid
+  grid-template-columns: 0.5fr 1fr 0.5fr
+  grid-template-rows: 1fr
+  grid-template-areas: "foto name ring"
+  max-height: 103px
+
+.pics
+  $size: 80px
+  width: $size
+  height: $size
+  border-radius: $size / 2
+  vertical-align: right
+
+.userpic
+  $size: 200px
+  width: $size
+  height: $size
+  border-radius: $size / 2
+  vertical-align: right
+
+.foto
+  grid-area: foto
+  
+  text-align: center
+  margin: 10px 0px
+
+.name
+  grid-area: name
+  
+  p
+    font-size: 20px
+
+  padding-left: 18px;
+  padding-top: 18px;
+  @media screen and (max-width: $break-small)
+     padding: 12px 10px
+
+.ring
+  grid-area: ring
+
+  img
+    width: 40px
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 10px
+
+.add
+  img
+    width: 35px
+
+.call
+  grid-area: call
+  
+  display: none    ///////////////////////////////
+  font-size: 22px
+  text-align: center
+  padding: 15px 0px
+
+  grid-template-columns: 1fr
+  grid-template-rows: 2fr 0.5fr
+  grid-template-areas: "info" "options"
+
+.callpic
+  $size: 110px
+  width: $size
+  height: $size
+  border-radius: $size / 2
+  vertical-align: right
+
+.info
+  grid-area: info
+
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  grid-template-areas: "you mid me"
+
+.you
+  grid-area: you
+
+.mid
+  grid-area: mid
+
+  display: grid
+  grid-template-rows: 1fr 1fr 1fr
+  grid-template-areas: "your-name" "duration" "my-name"
+
+.your-name
+   grid-area: your-name
+
+   text-align: left
+   p
+    margin: 5px
+
+.my-name
+   grid-area: my-name
+
+   text-align: right
+   p
+    margin: 5px
+
+
+.duration
+  grid-area: duration
+
+  //height: 110px;
+  text-align: center;
+  span
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+
+.me
+  grid-area: me
+
+.options
+  grid-area: options
+
+  display: grid
+  grid-template-columns: 1fr 1fr
+  grid-template-areas: "mute end"
+
+.mute
+  grid-area: mute
+
+  img
+    width: 38px
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    padding-top: 12px
+    filter: none;
+
+.end
+  grid-area: end
+
+  img
+    width: 40px
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px 5px 20px 5px
+    transform: rotate(135deg)
+    filter: invert(30%) sepia(80%) saturate(4113%) hue-rotate(344deg) brightness(96%) contrast(104%);

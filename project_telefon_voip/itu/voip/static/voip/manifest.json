@@ -1,0 +1,7 @@
+{
+  "short_name": "VoIP app",
+  "name": "VoIP aplikácia",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+{% load static %} 
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="{% static 'voip/manifest.json' %}">
+  <title>VoIP aplikácia</title>
+  <meta name="description" content="VoIP">
+  <meta name="author" content="Adam">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" type="text/css" href="{% static 'voip/css.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:500,600&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="{% static 'voip/jquery-3.4.1.min.js' %}"></script>
+  <meta name="csrf_token" content="{{ csrf_token }}">
+</head>
+<body>
+
+  <!-- vyhladavanie -->
+  <div class="grid-container">
+    <div class="navbar">
+      <div class="search">
+        <form>
+          <input id="user-input" autocomplete="off" type="text" name="search" placeholder="Hľadaj..." aria-label="Search">
+        </form>
+      </div>
+
+       <!-- nakoniec nepouzite -->
+      <div class="profile">
+      </div>
+    </div>
+
+    <!-- ukazuje sa pri hovore  -->
+    <div class="call">
+      <div class="info">
+          <!-- ikonka velaneho -->
+          <div class="you">
+          </div>
+
+          <div class="mid">
+          <div class="your-name">
+          </div>
+
+          <!-- ukazovatel casu hovoru -->
+          <div class="duration" id="duration">
+          </div>
+
+          <div class="my-name">
+            <p>{{ user }}</p>
+          </div>
+        </div>
+
+        <!-- ikonka volajuceho -->
+        <div class="me">
+           <img class="callpic" src="{{ user.image.url }}" >
+        </div>
+      </div>
+      <!-- moznosti stisit mikrofon a ukoncit hovor -->
+      <div class="options">
+        <div class="mute">
+          <img src="{% static "voip/mute.svg" %}" alt="Mute"> 
+        </div>
+        <div class="end">
+          <img src="{% static "voip/call.svg" %}" alt="Call">
+        </div>
+
+      </div>
+    </div>
+    
+    <!-- samoobnovovaci obsah -->
+    <div class="content" id="replaceable-content">
+      {% include 'voip/result.html' %}
+    </div>
+    
+  </div>
+
+  <script type="text/javascript" src="{% static 'voip/js.js' %}"></script>
+</body>
+</html>
+
